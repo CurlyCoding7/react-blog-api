@@ -15,6 +15,8 @@ const corsOptions = {
   credentials: true //included credentials as true
 };
 
+const port = process.env.PORT || 8800;
+
 app.use(cors(corsOptions));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -43,6 +45,6 @@ app.use("/api/posts", postRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 
-app.listen(8800, () => {
+app.listen(port, () => {
   console.log("Server is listening...");
 });
