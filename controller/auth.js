@@ -3,18 +3,18 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const signup = (req, res) => {
-  console.log("/////////////req body//////////");
-  console.log(req.body);
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Credentials", true);
+  // console.log("/////////////req body//////////");
+  // console.log(req.body);
+  // res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  // res.header(
+  //   "Access-Control-Allow-Methods",
+  //   "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  // );
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
+  // );
+  // res.header("Access-Control-Allow-Credentials", true);
 
   //Check existing user
   const selectQuery = "SELECT * FROM users WHERE email = $1 OR username = $2";
@@ -47,16 +47,16 @@ const signup = (req, res) => {
 };
 
 const login = (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Credentials", true);
+  // res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  // res.header(
+  //   "Access-Control-Allow-Methods",
+  //   "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  // );
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
+  // );
+  // res.header("Access-Control-Allow-Credentials", true);
 
   const q = "SELECT * FROM users WHERE username = $1";
 
@@ -88,16 +88,16 @@ const login = (req, res) => {
 };
 
 const logout = (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Credentials", true);
+  // res.header("Access-Control-Allow-Origin", "http://localhost:5173","https://react-blogs-app-frontend.netlify.app/");
+  // res.header(
+  //   "Access-Control-Allow-Methods",
+  //   "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  // );
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
+  // );
+  // res.header("Access-Control-Allow-Credentials", true);
 
   res.status(200).clearCookie("access_token").json("logged out");
 };

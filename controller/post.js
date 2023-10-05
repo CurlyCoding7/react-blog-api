@@ -2,16 +2,16 @@ const db = require("../db");
 const jwt = require("jsonwebtoken");
 
 const getPosts = async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Credentials", true);
+  // res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  // res.header(
+  //   "Access-Control-Allow-Methods",
+  //   "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  // );
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
+  // );
+  // res.header("Access-Control-Allow-Credentials", true);
 
   const q = req.query.cat
     ? "SELECT * FROM posts WHERE cat = $1"
@@ -33,16 +33,16 @@ const getPosts = async (req, res) => {
 };
 
 const getPost = (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Credentials", true);
+  // res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  // res.header(
+  //   "Access-Control-Allow-Methods",
+  //   "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  // );
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
+  // );
+  // res.header("Access-Control-Allow-Credentials", true);
 
   const q =
     "SELECT p.id, username, title, description, u.img AS userimg, p.img, cat, date FROM users u JOIN posts p ON u.id=p.uid WHERE p.id = $1";
@@ -54,16 +54,16 @@ const getPost = (req, res) => {
 };
 
 const addPost = (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Credentials", true);
+  // res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  // res.header(
+  //   "Access-Control-Allow-Methods",
+  //   "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  // );
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
+  // );
+  // res.header("Access-Control-Allow-Credentials", true);
 
   const token = req.cookies.access_token;
   if (!token) return res.status(401).json("Not authenticated!");
@@ -96,16 +96,16 @@ const addPost = (req, res) => {
 };
 
 const deletePost = (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Credentials", true);
+  // res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  // res.header(
+  //   "Access-Control-Allow-Methods",
+  //   "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  // );
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
+  // );
+  // res.header("Access-Control-Allow-Credentials", true);
 
   const token = req.cookies.access_token;
   if (!token) return res.status(401).json("Not authenticated!");
@@ -125,16 +125,16 @@ const deletePost = (req, res) => {
 };
 
 const updatePost = (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Credentials", true);
+  // res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  // res.header(
+  //   "Access-Control-Allow-Methods",
+  //   "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  // );
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "x-access-token, Origin, X-Requested-With, Content-Type, Accept"
+  // );
+  // res.header("Access-Control-Allow-Credentials", true);
 
   const token = req.cookies.access_token;
   if (!token) return res.status(401).json("Not authenticated!");
