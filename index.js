@@ -7,6 +7,8 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const multer = require("multer");
+const cloudinary = require("./helper/cloudinaryConfig");
+require("dotenv").config();
 
 const app = express();
 
@@ -28,7 +30,7 @@ app.use("/public", express.static("public"));
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./public/uploads");
+    cb(null, "./public");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "_" + file.originalname);
@@ -36,9 +38,14 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-app.post("/api/upload", upload.single("file"), function (req, res) {
-  const file = req.file;
-  res.status(200).json(file);
+app.post("/api/upload", upload.single("file"), async function (req, res) {
+  try {
+    const path = `./public/${req.file.filename}`;
+    const upload = await cloudinary.uploader.upload(path);
+    res.status(200).json(upload.secure_url);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.use("/api/drafts", draftRoutes);
