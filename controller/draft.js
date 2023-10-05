@@ -154,7 +154,7 @@ const updateDraft = (req, res) => {
     db.query(q, [...values, draftId, userInfo.id], (err, data) => {
       if (err) return res.status(500).json(err);
 
-      return res.json(req.body.img.filename);
+      return res.json(draftImg);
     });
   });
 };

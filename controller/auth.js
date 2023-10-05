@@ -3,6 +3,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const signup = (req, res) => {
+  console.log("/////////////req body//////////");
+  console.log(req.body);
   res.header("Access-Control-Allow-Origin", "http://localhost:5173");
   res.header(
     "Access-Control-Allow-Methods",
@@ -35,7 +37,7 @@ const signup = (req, res) => {
 
     db.query(
       insertQuery,
-      [req.body.username, req.body.email, hash, req.body.img.filename],
+      [req.body.username, req.body.email, hash, req.body.img],
       (err, data) => {
         if (err) return res.json(err);
         return res.status(200).json("User has been created");

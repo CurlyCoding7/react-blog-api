@@ -90,7 +90,7 @@ const addPost = (req, res) => {
     db.query(q, [...values], (err, data) => {
       if (err) return res.status(500).json(err);
 
-      return res.json(req.body.img.filename);
+      return res.json(postImg);
     });
   });
 };
@@ -159,7 +159,7 @@ const updatePost = (req, res) => {
     db.query(q, [...values, postId, userInfo.id], (err, data) => {
       if (err) return res.status(500).json(err);
 
-      return res.json(req.body.img.filename);
+      return res.json(postImg);
     });
   });
 };
